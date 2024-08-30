@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { getDriver } from "../controller/driver.js"
+import { getTeam } from "../controller/team.js"
 
 const router = Router();
 
-router.get("/", getDriver);
+router.get("/", getTeam);
 
 export default router;

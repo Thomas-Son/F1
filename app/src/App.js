@@ -5,6 +5,7 @@ import Footer from "./components/footer/index"
 
 import Home from "./components/pages/home/index"
 import Driver from "./components/pages/driver/index"
+import Team from "./components/pages/team/index"
 import GPList from "./components/pages/GPList/index"
 import Group from "./components/pages/group/index"
 
@@ -19,6 +20,7 @@ function App() {
         <Routes >
          <Route path="/" element={<Home />} />
          <Route path="/pilotes" element={<Driver />} />
+         <Route path="/equipes" element={<Team />} />
          <Route path="/GP-2024" element={<GPList />} />
          <Route path="/paris" element={<Group />} />
         </Routes>
