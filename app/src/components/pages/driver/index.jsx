@@ -1,5 +1,7 @@
 import {useState, useEffect} from "react";
 
+import styles from "./driver.module.css"
+
 function Driver() {
 
     const [allDriver, setAllDriver] = useState(null);
@@ -17,20 +19,8 @@ function Driver() {
         getData();
     }, []);
 
-    // useEffect(() => {
-    //     async function getData() {
-    //         try {
-    //             const team = await (await fetch("http://localhost:9000/api/v1/team")).json();
-    //             setAllTeam(team.datas);
-    //         } catch(error) {
-    //             throw Error(error);
-    //         }
-    //     }
-    //     getData();
-    // }, []);
-
     return(
-        <>
+        <main>
             <h2>Pilotes F1 2024</h2>
 
             {
@@ -38,15 +28,16 @@ function Driver() {
                     <p>Chargement</p>
                 ) : (
                     allDriver.map((datas) =>
-                        <article>
+                        <article className={styles.driver}>                            
                             <h4>{datas.label} {datas.score} Points</h4>
+                            <img src={"images/driver/" + datas.photo_url} alt={"photo de " + datas.label} />
                             <p>{datas.nationality}</p>
                             <p>Ecurie: {datas.team}</p>
                         </article>
                     )
                 )
             }
-        </>
+        </main>
     )
 }
 

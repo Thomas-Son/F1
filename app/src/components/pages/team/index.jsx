@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import styles from "./team.module.css"
+
 function Team() {
 
     const [allDriver, setAllDriver] = useState(null);
@@ -30,7 +32,7 @@ function Team() {
     }, []);
 
     return (
-        <>
+        <main>
             <h2>Equipes de F1 2024</h2>
 
             {
@@ -38,31 +40,33 @@ function Team() {
                     <p>Chargement</p>
                 ) : (
                     allTeam.map((datas) =>
-                        <section>
+                        <section className={styles.team}>
                             <h3>{datas.label} {datas.score} Points</h3>
-
-                            {
-                                !allDriver ? (
-                                    <p>Chargement</p>
-                                ) : (
-                                    allDriver.map((datas2) =>
-                                        datas.label === datas2.team ? (
-                                            <article>
-                                                <h4>{datas2.label}</h4>
-                                                <p>{datas2.nationality}</p>
-                                                <p>Ecurie: {datas2.team}</p>
-                                            </article>
-                                        ) : (
-                                            <></>
+                            <img src={"images/team/" + datas.photo_url} alt={"photo de l'équipe" + datas.label} />
+                            <div className={styles.teamComp}>
+                                {
+                                    !allDriver ? (
+                                        <p>Chargement</p>
+                                    ) : (
+                                        allDriver.map((datas2) =>
+                                            datas.label === datas2.team ? (
+                                                <article className={styles.teamates}>
+                                                    <h4>{datas2.label}</h4>
+                                                    <p>{datas2.nationality}</p>
+                                                    <p>Ecurie: {datas2.team}</p>
+                                                </article>
+                                            ) : (
+                                                <></>
+                                            )
                                         )
                                     )
-                                )
-                            }
+                                }
+                            </div>
                         </section>
                     )
                 )
             }
-        </>
+        </main>
     )
 }
 

@@ -1,6 +1,10 @@
+import styles from "./footer.module.css"
+
 function Footer() {
     return(
-        <h3>By - Thomas Son</h3>
+        <footer>
+            <h3>By - Thomas Son</h3>
+        </footer>
     )
 }
 

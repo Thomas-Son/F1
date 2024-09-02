@@ -2,37 +2,18 @@
 VERSION MOBILE
 ***************************************************************** */
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.regles {
+    margin: 10px;
+    
 }
 
-html {
-  font-size: 62.5%;
+.regles h3 {
+    padding-bottom: 3px;
 }
 
-body {
-  font-size: 1.8rem;
-  font-family: "roboto";
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
-img {
-  display: block;
-}
-
-main {
-  margin: 5px;
-}
-
-h2 {
-  border-bottom: 3px solid rgb(221, 9, 9);
-  margin: 10px;
+.regles ul {
+    list-style-type: none;
+    padding: 5px;
 }
 
 /* *****************************************************************

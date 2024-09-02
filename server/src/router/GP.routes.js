@@ -1,8 +1,9 @@
 import {Router} from "express";
-import {getGP} from "../controller/GP.js"
+import { getGP, getGPTop3} from "../controller/GP.js"
 
 const router = Router();
 
-router.get("/", getGP)
+router.get("/", getGP);
+router.get("/top3/:id", getGPTop3);
 
 export default router;

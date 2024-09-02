@@ -9,6 +9,10 @@ import Team from "./components/pages/team/index"
 import GPList from "./components/pages/GPList/index"
 import Group from "./components/pages/group/index"
 
+import Signin from "./components/pages/user/signin/index"
+import Signup from "./components/pages/user/signup/index"
+import Signout from "./components/pages/user/signout/index"
+
 import './App.css';
 
 function App() {
@@ -23,6 +27,10 @@ function App() {
          <Route path="/equipes" element={<Team />} />
          <Route path="/GP-2024" element={<GPList />} />
          <Route path="/paris" element={<Group />} />
+
+         <Route path="/utilisateur/connexion" element={<Signin />} />
+         <Route path="/utilisateur/inscription" element={<Signup />} />
+         <Route path="/utilisateur/deconnexion" element={<Signout />} />
         </Routes>
 
       <Footer />
