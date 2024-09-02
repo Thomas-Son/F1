@@ -1,39 +1,39 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
-// import { signin } from "../../../../store/slice/user";
+import { signin } from "../../../../store/slice/user";
 
 function Form({ type }) {
 
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const [alias, setAlias] = useState("");
+    const [label, setLabel] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    // const [msg, setMsg] = useState(null);
+    const [msg, setMsg] = useState(null);
 
     async function handleSubmit(e) {
         e.preventDefault();
         const res = await fetch("/api/v1/user/sign" + type, {
             method: "post",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ alias, password }),
+            body: JSON.stringify({ label, email, password }),
         });
         const json = await res.json();
+        setMsg(json.msg);
 
         if (type === "in" && res.status === 200) {
 
-            const info = await (await fetch("/api/v1/user/" + alias)).json();
+            const info = await (await fetch("/api/v1/user/" + label)).json();
 
             localStorage.setItem("auth", json.TOKEN);
-            // localStorage.setItem("user_role", info.datas[0].role);
             localStorage.setItem("user_id", info.datas[0].id);
 
-            // dispatch(signin({ alias }));
-            navigate("/" + alias);
+            dispatch(signin({ label }));
+            navigate("/");
         }
 
         if (type === "up" && res.status === 201) {
@@ -44,21 +44,21 @@ function Form({ type }) {
     return (
         <main >
             <form onSubmit={handleSubmit}>
-                {/* {msg && <p>{msg}</p>} */}
+                {msg && <p>{msg}</p>}
 
                 <input
-                    placeholder="Votre alias"
+                    placeholder="Votre label"
                     type="text"
-                    name="alias"
-                    value={alias}
-                    onChange={(e) => setAlias(e.target.value)}
+                    name="label"
+                    value={label}
+                    onChange={(e) => setLabel(e.target.value)}
                 />
 
                 {type === "up" && (
                     <input
                         placeholder="Votre email"
                         type="text"
-                        name="alias"
+                        name="label"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />

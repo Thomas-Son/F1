@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom"
-// import { useSelector } from "react-redux"
+import { useSelector } from "react-redux";
 
 import logo from "../../assets/images/f1_logo.svg"
 
@@ -7,7 +7,7 @@ import styles from "./header.module.css"
 
 function Header() {
 
-    // const { isLogged } = useSelector((state) => state.user);
+    const { isLogged } = useSelector((state) => state.user);
 
     return(
         <header>
@@ -23,13 +23,11 @@ function Header() {
                 <NavLink to={"paris"}>Paris</NavLink>
                 <NavLink to={"historique"}>Historique</NavLink>
 
-                <NavLink to={"utilisateur/connexion"}>Connexion</NavLink>
-{/* 
                 {!isLogged ?
-                    <NavLink to={"utilisateur/connexion"}>connexion</NavLink>
+                    <NavLink to={"utilisateur/connexion"}>Connexion</NavLink>
                     :
-                    <NavLink to={"utilisateur/deconnexion"}>déconnexion</NavLink>
-                } */}
+                    <NavLink to={"utilisateur/deconnexion"}>Déconnexion</NavLink>
+                }
 
             </nav>
 

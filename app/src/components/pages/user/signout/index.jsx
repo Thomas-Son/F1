@@ -1,20 +1,20 @@
-// import { useEffect } from "react";
-// import { useDispatch } from "react-redux";
-// import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-// import { signout } from "../../../../store/slice/user";
+import { signout } from "../../../../store/slice/user";
 
 
-// function Signout() {
-//     const dispatch = useDispatch();
-//     const navigate = useNavigate();
+function Signout() {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-//     useEffect(() => {
-//         dispatch(signout());
-//         navigate("/accueil");
-//     }, [dispatch, navigate, signout]);
+    useEffect(() => {
+        dispatch(signout());
+        navigate("/");
+    }, [dispatch, navigate, signout]);
 
-//     return null;
-// }
+    return null;
+}
 
-// export default Signout;
+export default Signout;

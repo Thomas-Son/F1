@@ -1,4 +1,4 @@
-import {BrowserRouter, Routes, Route} from "react-router-dom"
+import {Routes, Route} from "react-router-dom"
 
 import Header from "./components/header/index"
 import Footer from "./components/footer/index"
@@ -17,7 +17,7 @@ import './App.css';
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
 
       <Header />
 
@@ -35,7 +35,7 @@ function App() {
 
       <Footer />
 
-    </BrowserRouter>
+    </>
   );
 }
 
