@@ -30,9 +30,9 @@ function Form({ type }) {
             const info = await (await fetch("/api/v1/user/" + label)).json();
 
             localStorage.setItem("auth", json.TOKEN);
-            localStorage.setItem("user_id", info.datas[0].id);
+            localStorage.setItem("user_role", info.datas[0].role);
 
-            dispatch(signin({ label }));
+            dispatch(signin({ info }));
             navigate("/");
         }
 

@@ -13,6 +13,11 @@ import Signin from "./components/pages/user/signin/index"
 import Signup from "./components/pages/user/signup/index"
 import Signout from "./components/pages/user/signout/index"
 
+import Admin from "./components/pages/admin/index"
+import AdminRole from "./components/pages/admin/role/index"
+import DeleteRole from "./components/pages/admin/role/delete/index";
+import UpdateRole from "./components/pages/admin/role/update/index";
+
 import './App.css';
 
 function App() {
@@ -31,6 +36,11 @@ function App() {
          <Route path="/utilisateur/connexion" element={<Signin />} />
          <Route path="/utilisateur/inscription" element={<Signup />} />
          <Route path="/utilisateur/deconnexion" element={<Signout />} />
+
+         <Route path="/administrateur" element={<Admin />} />
+         <Route path="/administrateur/roles" element={<AdminRole />} />
+        <Route path="/administrateur/roles/supprimer/:id" element={<DeleteRole />} />
+        <Route path="/administrateur/roles/modifier/:id" element={<UpdateRole />} />
         </Routes>
 
       <Footer />

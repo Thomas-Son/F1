@@ -7,7 +7,8 @@ import styles from "./header.module.css"
 
 function Header() {
 
-    const { isLogged } = useSelector((state) => state.user);
+    const { isLogged, userInfos } = useSelector((state) => state.user);
+    console.log(userInfos)
 
     return(
         <header>
@@ -22,6 +23,11 @@ function Header() {
                 <NavLink to={"pilotes"}>Pilotes</NavLink>
                 <NavLink to={"paris"}>Paris</NavLink>
                 <NavLink to={"historique"}>Historique</NavLink>
+
+                {localStorage.user_role === "admin" &&
+                    <>
+                        <NavLink to={"administrateur"}>Admin</NavLink>
+                    </>}
 
                 {!isLogged ?
                     <NavLink to={"utilisateur/connexion"}>Connexion</NavLink>

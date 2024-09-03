@@ -5,7 +5,6 @@ import styles from "./driver.module.css"
 function Driver() {
 
     const [allDriver, setAllDriver] = useState(null);
-    const [allTeam, setAllTeam] = useState(null);
 
     useEffect(() => {
         async function getData() {

@@ -78,7 +78,7 @@ const signout = (req, res) => {
 
 const getInfoUser = async (req, res) => {
     try {
-        const queryUser = " SELECT user.id, label FROM user WHERE user.label = ? ";
+        const queryUser = " SELECT user.id, user.label AS user, role.label As role FROM user JOIN role ON role.id = role_id WHERE user.label = ? ";
         const [datas] = await query.findByDatas(queryUser, req.params);
         res.status(200).json({ datas });
     } catch (error) {
